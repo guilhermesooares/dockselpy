@@ -1,20 +1,21 @@
-## dockselpy
+## Dockselpy
+[![Science](https://forthebadge.com/images/badges/built-with-science.svg)](https://dcc.ufmg.br)
+[![Python3](https://forthebadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
-Dockerfile example on how to *"assemble"* together Selenium (with support for Chrome, Firefox and PhantomJS), Python and Xfvb.
+Dockerfile that *"assemble"* together Selenium (with support for Firefox), Python, Pandas and Xfvb.
 
 ### Information
 
-Recent struggle with finding a docker image for Selenium that supports headless versions for both Firefox and Chrome, 
-led to the process of building my own version.
+This version was created to run a BOT that is part of a scientific research that studies the children exposure to advertisements on Youtube.
 
 The image is build with the following dependencies:
-- latest Chrome and chromedriver
 - latest Firefox and geckodriver
-- latest stable PhantomJS webkit (v2.1.1)
 - Selenium
 - Python 3
 - Xvfb and the python wrapper - pyvirtualdisplay
-
+- Pandas
+- mysql-connector
+- tzupdate (for TimeZone update)
 
 ### Running:
 
@@ -49,4 +50,11 @@ display.stop()
 
 ```
 
-Detailed examples on how to use Firefox with custom profile, Google Chrome with desired options or PhantomJS can be found in the source.
+### Todos
+
+ - Add CRON scheduler
+
+License
+----
+
+MIT
