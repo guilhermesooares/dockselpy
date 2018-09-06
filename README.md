@@ -1,4 +1,3 @@
-
 # Dockselpy
 
 [![Science](https://forthebadge.com/images/badges/built-with-science.svg)](https://dcc.ufmg.br)
@@ -18,19 +17,23 @@ The image is build with the following dependencies:
 - Pandas
 - Mysql-Connector
 - TZUPDATE (for TimeZone update)
+- Support to VPN Area connection
 
 
 ## Running:
 #### Build Selenium Docker image
     docker build -t selenium_docker .
 #### Run image in a Container
-	docker run -t -d selenium_docker
-#### Run command inside Docker (ex : run.sh)
-	docker exec -it <container name> ./run
+	sudo docker run -t -d -it --cap-add=NET_ADMIN --device /dev/net/tun selenium_docker
+#### Run command inside Docker
+	docker exec -it <container id> bash
 #### Stop Container
     docker stop selenium_docker
-    
---hostname *{nome_da_maquina} : Nome da máquina refere-se a localidade da máquina, configurada no banco de dados e atribuída a uma persona.	
+
+## Arguments:
+- hostname *{nome_da_maquina} : Nome da máquina refere-se a localidade da máquina, configurada no banco de dados e atribuída a uma persona.
+- device : Create tunneling device for use VPN connection protocol .
+
 
 ## Example
 
@@ -53,6 +56,8 @@ display.stop()
 ## Todos
 
  - Add CRON scheduler
+ - Automate Area VPN script inside Docker
+ - Check ptracking parse
 
 License
 ----
