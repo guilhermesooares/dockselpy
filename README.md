@@ -24,11 +24,11 @@ The image is build with the following dependencies:
 #### Build Selenium Docker image
     docker build -t selenium_docker .
 #### Run image in a Container
-	sudo docker run -t -d -it --cap-add=NET_ADMIN --device /dev/net/tun selenium_docker
+	docker run -t -d -it --mount src="$(pwd)/database",target=/usr/src/app/src/database,type=bind --cap-add=NET_ADMIN --device /dev/net/tun selenium_docker
 #### Run command inside Docker
 	docker exec -it <container id> bash
 #### Stop Container
-    docker stop selenium_docker
+    docker stop <container id>
 
 ## Arguments:
 - hostname *{nome_da_maquina} : Nome da máquina refere-se a localidade da máquina, configurada no banco de dados e atribuída a uma persona.
