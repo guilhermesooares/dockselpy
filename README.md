@@ -24,18 +24,26 @@ The image is build with the following dependencies:
 #### Build Selenium Docker image
     docker build -t selenium_docker .
 #### Run image in a Container
-	docker run -t -d -it --mount src="$(pwd)/database",target=/usr/src/app/src/database,type=bind --cap-add=NET_ADMIN --device /dev/net/tun selenium_docker
+	docker run -t -d -it --name sp01 --mount source=eleicoes_db,target=/home/src/database --cap-add=NET_ADMIN --device /dev/net/tun selenium_docker
 #### Run command inside Docker
-	docker exec -it <container id> bash
-#### Stop Container
-    docker stop <container id>
+	docker exec -it <container name> bash
 
 ## Arguments:
-- hostname *{nome_da_maquina} : Nome da máquina refere-se a localidade da máquina, configurada no banco de dados e atribuída a uma persona.
+
 - device : Create tunneling device for use VPN connection protocol .
+- name : Set container name
+- cap-add: Add Linux capabilities
+- mount: Mount volume in container
+
+## Using Volumes:
+To mount a volume in a docker container, follow that steps:
+#### Create a volume
+    docker volume <volume_name>
+#### See created volume details
+    docker inspect <volume_name>
 
 
-## Example
+## Use Example
 
 ```python
 from pyvirtualdisplay import Display
@@ -54,10 +62,7 @@ display.stop()
 ```
 
 ## Todos
-
- - Add CRON scheduler
  - Automate Area VPN script inside Docker
- - Check ptracking parse
 
 License
 ----
