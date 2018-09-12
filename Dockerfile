@@ -35,9 +35,8 @@ RUN echo "resolvconf resolvconf/linkify-resolvconf boolean false" | debconf-set-
 
 
 #Run VPN Area Script
-#RUN wget https://vpnarea.com/downloads/vpnarea.pl && \
-#    chmod 777 vpnarea.pl && \
-#    ./vpnarea.pl
+RUN wget https://vpnarea.com/downloads/vpnarea.pl && \
+    chmod 777 vpnarea.pl
 
 # Clone our private GitHub Repository
 RUN git clone https://d3eb613992b658f5631c7fe99be78d0d3d740123:x-oauth-basic@github.com/FelipeGiori/video-ads-eleicoes.git $APP_HOME/
