@@ -36,7 +36,10 @@ WORKDIR /$APP_HOME
 RUN echo "resolvconf resolvconf/linkify-resolvconf boolean false" | debconf-set-selections
 
 # Clone our private GitHub Repository
-RUN git clone https://d3eb613992b658f5631c7fe99be78d0d3d740123:x-oauth-basic@github.com/FelipeGiori/video-ads-eleicoes.git $APP_HOME\
+RUN git clone https://d3eb613992b658f5631c7fe99be78d0d3d740123:x-oauth-basic@github.com/FelipeGiori/video-ads-eleicoes.git $APP_HOME
+
+# Setup screen for run VPN
+RUN apt-get install screen
 
 #Download VPN Area Script
 RUN wget https://vpnarea.com/downloads/vpnarea.pl && \
