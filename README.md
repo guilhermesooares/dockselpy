@@ -24,7 +24,7 @@ The image is build with the following dependencies:
 #### Build Selenium Docker image
     docker build -t selenium_docker .
 #### Run image in a Container
-	docker run -t -d -it --name sp01 --mount source=eleicoes_db,target=/home/src/database --cap-add=NET_ADMIN --device /dev/net/tun selenium_docker
+	docker run -t -d -it --name sp01 --mount source=eleicoes_db,target=/database --cap-add=NET_ADMIN --device /dev/net/tun selenium_docker
 #### Run command inside Docker
 	docker exec -it <container name> bash
 
@@ -38,7 +38,7 @@ The image is build with the following dependencies:
 ## Using Volumes:
 To mount a volume in a docker container, follow that steps:
 #### Create a volume
-    docker volume <volume_name>
+    docker volume create <volume_name>
 #### See created volume details
     docker inspect <volume_name>
 
