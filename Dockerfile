@@ -35,7 +35,7 @@ WORKDIR /$APP_HOME
 # It fix resolvconf error when run VPN
 RUN echo "resolvconf resolvconf/linkify-resolvconf boolean false" | debconf-set-selections
 
-# Clone our private GitHub Repository
+# Clone private GitHub Repository / use a generated key to clone
 RUN git clone https://d3eb613992b658f5631c7fe99be78d0d3d740123:x-oauth-basic@github.com/FelipeGiori/video-ads-eleicoes.git $APP_HOME
 
 # Setup screen for run VPN
